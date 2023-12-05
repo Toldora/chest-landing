@@ -1,5 +1,70 @@
-<section class="chest-section">
+<section class="chest-section js-chest-section">
   <div class="chest-section__container container">
-    <h1>Lorem, ipsum dolor.</h1>
+    {{> wheel }}
+    <h1 class="chest-section__title">Lorem, ipsum dolor</h1>
+    <button
+      class="app-button chest-section__open-chest-btn js-open-chest-btn"
+      type="button"
+      aria-label="Abra o caso"
+    >
+      Abra o caso!
+    </button>
+    <p class="chest-section__bonus-tries-text">
+      Você tem
+      <span class="chest-section__bonus-tries-text-accent"
+        ><span class="js-bonus-tries">2</span> tentativas</span
+      >
+      para abrir o caso
+    </p>
+    <div class="chest-section__bonuses-row">
+      <div
+        class="chest-section__bonus-wrapper chest-section__bonus-wrapper--first"
+      >
+        <p>Bônus nº 1</p>
+        <picture class="chest-section__bonus-img">
+          <source
+            type="image/webp"
+            srcset="/img/bonus-1.webp 140w, /img/bonus-1@2x.webp 280w"
+            sizes="140px"
+          />
+          <source
+            type="image/png"
+            srcset="/img/bonus-1.png 140w, /img/bonus-1@2x.png 280w"
+            sizes="140px"
+          />
+          <img
+            src="/img/bonus-1.png"
+            width="140"
+            height="140"
+            alt=""
+            loading="lazy"
+          />
+        </picture>
+      </div>
+      <div
+        class="chest-section__bonus-wrapper chest-section__bonus-wrapper--second"
+      >
+        <p>Bônus nº 2</p>
+        <picture class="chest-section__bonus-img">
+          <source
+            type="image/webp"
+            srcset="/img/bonus-2.webp 140w, /img/bonus-2@2x.webp 280w"
+            sizes="140px"
+          />
+          <source
+            type="image/png"
+            srcset="/img/bonus-2.png 140w, /img/bonus-2@2x.png 280w"
+            sizes="140px"
+          />
+          <img
+            src="/img/bonus-2.png"
+            width="140"
+            height="140"
+            alt=""
+            loading="lazy"
+          />
+        </picture>
+      </div>
+    </div>
   </div>
 </section>

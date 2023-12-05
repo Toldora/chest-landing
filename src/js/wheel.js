@@ -1,9 +1,9 @@
 import { globalState } from '@/js/global-state';
 // import { setToLS } from '@/js/local-storage';
-import { openSignUpModal } from '@/js/sign-up';
+// import { openSignUpModal } from '@/js/sign-up';
 
 const wheelRef = document.querySelector('.js-wheel');
-const bonusesSectionRef = document.querySelector('.js-bonuses-section');
+const chestSectionRef = document.querySelector('.js-chest-section');
 const bonusTriesRef = document.querySelector('.js-bonus-tries');
 const bodyRef = document.body;
 const wheelMainPartRef = wheelRef.querySelector('.js-wheel-main-part');
@@ -39,7 +39,7 @@ const onClickWheel = () => {
         bodyRef.classList.add('wheel-stage-2');
         bodyRef.classList.remove('wheel-stage-1');
         wheelRef.classList.remove('wheel--spinning-1');
-        bonusesSectionRef.classList.add('bonuses-section--visible-first-bonus');
+        chestSectionRef.classList.add('chest-section--visible-first-bonus');
         bonusTriesRef.textContent = '1';
         globalState.wheelStage += 1;
 
@@ -49,14 +49,12 @@ const onClickWheel = () => {
         bodyRef.classList.add('wheel-stage-3');
         bodyRef.classList.remove('wheel-stage-2');
         wheelRef.classList.remove('wheel--spinning-2');
-        bonusesSectionRef.classList.add(
-          'bonuses-section--visible-second-bonus',
-        );
+        chestSectionRef.classList.add('chest-section--visible-second-bonus');
         bonusTriesRef.textContent = '0';
         globalState.wheelStage += 1;
 
         // setToLS('isLastStage', globalState.isLastStage);
-        openSignUpModal({ isBlocked: true });
+        // openSignUpModal({ isBlocked: true });
 
         break;
 
@@ -71,9 +69,9 @@ const onClickWheel = () => {
 export const setWheelLastStage = () => {
   bodyRef.classList.add('wheel-stage-3');
   bodyRef.classList.remove('wheel-stage-1');
-  bonusesSectionRef.classList.add(
-    'bonuses-section--visible-first-bonus',
-    'bonuses-section--visible-second-bonus',
+  chestSectionRef.classList.add(
+    'chest-section--visible-first-bonus',
+    'chest-section--visible-second-bonus',
   );
   bonusTriesRef.textContent = '0';
   globalState.wheelStage = 3;
