@@ -44,16 +44,16 @@
 }
 
 .login-form__text-input {
+  display: flex;
   width: 100%;
   height: auto;
   min-height: to-rem(40);
-  display: flex;
   align-items: center;
-  margin-top: to-rem(8);
   padding: to-rem(10) to-rem(16);
-  background-color: var(--col-gordons-green);
   border: none;
   border-radius: to-rem(12);
+  margin-top: to-rem(8);
+  background-color: var(--col-gordons-green);
   box-shadow: none;
   color: inherit;
   font-size: to-rem(14);
@@ -114,7 +114,7 @@
   font-size: to-rem(12);
   font-weight: 500;
 
-  &:after {
+  &::after {
     position: absolute;
     right: 0;
     bottom: -#{to-rem(1)};
@@ -126,7 +126,7 @@
   }
 
   @include hover {
-    &:after {
+    &::after {
       left: 0;
       width: 100%;
     }

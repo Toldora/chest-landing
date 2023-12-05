@@ -1,6 +1,6 @@
 .auth-type-radio {
-  height: to-rem(40);
   display: flex;
+  height: to-rem(40);
   align-items: stretch;
   margin-top: to-rem(20);
   margin-bottom: to-rem(24);
@@ -11,12 +11,12 @@
   --label-padding: #{to-rem(10)};
 
   position: relative;
-  height: 100%;
-  width: 100%;
-  border-radius: to-rem(12);
   overflow: hidden;
-  user-select: none;
+  width: 100%;
+  height: 100%;
+  border-radius: to-rem(12);
   cursor: pointer;
+  user-select: none;
 
   &:not(:last-child) {
     margin-right: to-rem(11);
@@ -24,21 +24,21 @@
 }
 
 .auth-type-radio__radio-input {
-  width: auto;
   position: absolute;
+  width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
 .auth-type-radio__radio-content {
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
   align-items: center;
   padding: 0 to-rem(10);
-  padding-left: calc(var(--icon-size) + var(--label-padding) + to-rem(5));
   padding-right: var(--label-padding);
+  padding-left: calc(var(--icon-size) + var(--label-padding) + to-rem(5));
   background-color: var(--col-gordons-green);
   transition: background-color var(--hover-transition);
 
@@ -59,20 +59,20 @@
   position: absolute;
   top: 50%;
   left: var(--label-padding);
-  transform: translateY(-50%);
-  height: var(--icon-size);
-  width: var(--icon-size);
   display: inline-flex;
+  width: var(--icon-size);
+  height: var(--icon-size);
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background-color: #{rgba(var(--col-total-white-rgb), 50%)};
   opacity: 0.5;
+  transform: translateY(-50%);
   transition: background-color var(--hover-transition),
     opacity var(--hover-transition);
 
   .auth-type-radio__radio-input:checked ~ & {
-    opacity: 1;
     background-color: var(--col-total-white);
+    opacity: 1;
   }
 }

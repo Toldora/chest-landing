@@ -1,13 +1,13 @@
 .app-button {
   min-height: to-rem(40);
   padding: 0 to-rem(24);
-  background-color: var(--col-tibetan-yellow);
-  color: var(--col-dark-tone-ink);
-  box-shadow: none;
   border-radius: to-rem(5);
+  background-color: var(--col-tibetan-yellow);
+  box-shadow: none;
+  color: var(--col-dark-tone-ink);
   font-size: to-rem(14);
-  line-height: 1.3;
   font-weight: 700;
+  line-height: 1.3;
   transition: background-color var(--hover-transition);
 
   @include respond-above(medium) {

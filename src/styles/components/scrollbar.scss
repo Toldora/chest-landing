@@ -1,6 +1,6 @@
 html,
 .scrollbar {
-  scrollbar-color: var(--col-bilberry) rgba(var(--col-total-white-rgb), 15%);
+  scrollbar-color: var(--col-bilberry) rgb(var(--col-total-white-rgb) 15%);
   scrollbar-width: thin;
 }
 
@@ -10,11 +10,11 @@ html,
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgba(var(--col-total-white-rgb), 15%);
   border-radius: to-rem(10);
+  background-color: rgb(var(--col-total-white-rgb) 15%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--col-bilberry);
   border-radius: to-rem(10);
+  background-color: var(--col-bilberry);
 }

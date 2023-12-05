@@ -1,49 +1,49 @@
 .app-sidebar__overlay {
   position: fixed;
+  z-index: var(--z-sidebar-overlay);
   top: 0;
   left: 0;
+  display: flex;
   width: 100vw;
   height: vh(100);
-  display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: var(--z-sidebar-overlay);
+  justify-content: center;
+  backdrop-filter: blur(to-rem(4));
   background-color: var(--app-overlay-bg);
   opacity: 0;
   visibility: hidden;
-  backdrop-filter: blur(to-rem(4));
 
   &--is-visible {
     opacity: 1;
   }
 
   &--animation {
-    visibility: visible;
-    transition-property: opacity;
     transition-duration: var(--slow-transition-duration);
+    transition-property: opacity;
     transition-timing-function: var(--slide-transition-timing-function);
+    visibility: visible;
   }
 }
 
 .app-sidebar__content {
   position: fixed;
+  z-index: var(--z-app-sidebar);
   top: 0;
   right: 0;
   bottom: 0;
-  z-index: var(--z-app-sidebar);
-  width: min(100%, #{to-rem(480)});
-  overflow-y: auto;
-  overscroll-behavior: none;
   display: flex;
+  width: min(100%, #{to-rem(480)});
   align-items: center;
   justify-content: center;
   padding: var(--app-navbar-height) to-rem(20) to-rem(32);
+  background-position: center bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center bottom;
+  overflow-y: auto;
+  overscroll-behavior: none;
   transform: translateX(100%);
-  will-change: transform;
   user-select: none;
+  will-change: transform;
 
   @include bg-img-webp('/img/bg/sidebar-ver');
 
@@ -56,8 +56,8 @@
   }
 
   .app-sidebar__overlay--animation & {
-    transition-property: transform;
     transition-duration: var(--slow-transition-duration);
+    transition-property: transform;
     transition-timing-function: var(--slide-transition-timing-function);
   }
 }

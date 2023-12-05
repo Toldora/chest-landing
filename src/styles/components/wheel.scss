@@ -12,11 +12,10 @@
   }
 
   display: inline-block;
-  @extend %full-width;
-
+  background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-position: center;
+  @extend %full-width;
 
   @include bg-img-webp($path, true);
 
@@ -28,19 +27,19 @@
 .wheel {
   position: relative;
   z-index: var(--z-wheel);
-  aspect-ratio: 1;
+  overflow: hidden;
   flex-shrink: 0;
   border-radius: 50%;
-  filter: drop-shadow(0 to-rem(10) to-rem(50) var(--col-key-lime));
-  overflow: hidden;
+  aspect-ratio: 1;
   cursor: default;
+  filter: drop-shadow(0 to-rem(10) to-rem(50) var(--col-key-lime));
 
   @media (orientation: landscape) {
     --size: #{min(46vw, vh(74))};
 
+    max-width: var(--size);
     height: 0;
     flex-grow: 1;
-    max-width: var(--size);
     padding-bottom: var(--size);
 
     @include respond-above(xmedium) {
@@ -106,15 +105,15 @@
   }
 
   .wheel--spinning-1 & {
-    animation-name: spinToStageTwo;
     animation-duration: 4s;
     animation-iteration-count: 1;
+    animation-name: spinToStageTwo;
   }
 
   .wheel--spinning-2 & {
-    animation-name: spinToStageThree;
     animation-duration: 4s;
     animation-iteration-count: 1;
+    animation-name: spinToStageThree;
     transform: rotate(-25deg);
   }
 }
@@ -129,19 +128,19 @@
 
 .wheel__arrow,
 .wheel__arrow-shadow {
-  width: 18.5%;
-  height: 18.5%;
   position: absolute;
   top: 0;
   left: 50%;
+  width: 18.5%;
+  height: 18.5%;
   transform: translateX(-50%);
 }
 
 .wheel__arrow {
   background-image: url('/img/wheel/stone-arrow.png');
+  background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: center;
 
   @supports (background-image: url('/img/wheel/stone-arrow.webp')) {
     background-image: url('/img/wheel/stone-arrow.webp');
@@ -157,17 +156,17 @@
   transform-origin: center;
 
   &::after {
-    content: '';
     position: absolute;
     top: 0;
     left: 0;
-
-    @extend %full-width;
+    content: '';
     opacity: 0;
-
-    @include bg-image('/img/wheel/wheel-btn-hover');
     transition: opacity var(--hover-transition),
       transform var(--hover-transition);
+
+    @extend %full-width;
+
+    @include bg-image('/img/wheel/wheel-btn-hover');
 
     @media all and (hover: none) {
       opacity: 1;

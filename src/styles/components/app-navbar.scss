@@ -1,14 +1,16 @@
 .app-navbar {
-  position: relative;
+  position: fixed;
   z-index: var(--z-app-navbar);
-  height: var(--app-navbar-height);
+  top: 0;
+  left: 0;
   width: 100%;
+  height: var(--app-navbar-height);
   background-color: var(--col-dark-tone-ink);
 }
 
 .app-navbar__container {
-  height: 100%;
   display: flex;
+  height: 100%;
   align-items: center;
   font-size: to-rem(16);
 
@@ -42,13 +44,14 @@
 }
 
 .app-navbar__divider {
-  flex: 1 1 0;
   display: inline-flex;
   width: 0;
   max-width: 0;
+
   // height: inherit;
   // min-height: 100%;
   max-height: 100%;
+  flex: 1 1 0;
   align-self: stretch;
   border-width: 0 thin 0 0;
   border-style: solid;
@@ -96,14 +99,14 @@
 .app-navbar__burger-btn {
   position: relative;
   display: flex;
-  align-items: center;
-  justify-content: center;
   width: to-rem(40);
   height: to-rem(40);
-  margin-left: to-rem(15);
+  align-items: center;
+  justify-content: center;
   padding: to-rem(10);
-  background-color: var(--app-navbar-burger-btn-bg);
   border-radius: to-rem(4);
+  margin-left: to-rem(15);
+  background-color: var(--app-navbar-burger-btn-bg);
 
   @include respond-above(tablet) {
     display: none;
@@ -111,15 +114,15 @@
 }
 
 .app-navbar__burger-btn-content {
+  position: relative;
   display: inline-block;
   width: 100%;
-  position: relative;
 }
 
 .app-navbar__burger-btn-block {
   &,
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     position: absolute;
     left: 0;
     width: 100%;
@@ -129,12 +132,12 @@
     transition: top var(--hover-transition), transform var(--hover-transition);
   }
 
-  &:before {
+  &::before {
     top: -#{to-rem(6)};
     content: '';
   }
 
-  &:after {
+  &::after {
     top: #{to-rem(6)};
     content: '';
   }
@@ -142,12 +145,12 @@
   .app-navbar__burger-btn--is-open & {
     transform: rotate(45deg);
 
-    &:before {
+    &::before {
       top: 0;
       transform: rotate(0);
     }
 
-    &:after {
+    &::after {
       top: 0;
       transform: rotate(90deg);
     }

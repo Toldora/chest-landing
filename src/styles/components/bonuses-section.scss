@@ -1,7 +1,7 @@
 %hidden-block {
-  visibility: hidden;
   opacity: 0;
   transition: opacity var(--hover-transition);
+  visibility: hidden;
 }
 
 .bonuses-section {
@@ -25,8 +25,8 @@
 }
 
 .bonuses-section__title-wrapper {
-  width: 100%;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: center;
   margin-bottom: to-rem(10);
@@ -63,8 +63,8 @@
   height: var(--size);
   align-items: center;
   justify-content: center;
-  background-color: var(--col-tibetan-yellow);
   border-radius: to-rem(4);
+  background-color: var(--col-tibetan-yellow);
   color: var(--col-dark-tone-ink);
 }
 
@@ -90,8 +90,8 @@
     @extend %hidden-block;
 
     .bonuses-section--visible-first-bonus & {
-      visibility: visible;
       opacity: 1;
+      visibility: visible;
     }
   }
 
@@ -99,8 +99,8 @@
     @extend %hidden-block;
 
     .bonuses-section--visible-second-bonus & {
-      visibility: visible;
       opacity: 1;
+      visibility: visible;
     }
   }
 
