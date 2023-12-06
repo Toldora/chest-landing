@@ -47,11 +47,11 @@
   }
 
   @include hover {
-    background-color: var(--auth-type-radio-bg-hover);
+    background-color: rgb(var(--col-total-white-rgb), 15%);
   }
 
   .auth-type-radio__radio-input:checked + & {
-    background-color: var(--auth-type-radio-bg-checked);
+    background-color: rgb(var(--col-total-white-rgb), 35%);
   }
 }
 

@@ -40,10 +40,10 @@ const closeSidebar = event => {
 const onClickBurgerBtn = event => {
   if (state.isOpenedSidebar) {
     closeSidebar(event);
-    burgerBtnRef.classList.remove('app-navbar__burger-btn--is-open');
+    burgerBtnRef.setAttribute('aria-pressed', false);
   } else {
     openSidebar();
-    burgerBtnRef.classList.add('app-navbar__burger-btn--is-open');
+    burgerBtnRef.setAttribute('aria-pressed', true);
   }
 };
 
@@ -58,7 +58,7 @@ const handleResize = () => {
 
   if (state.isDesktop !== isDesktop) {
     closeSidebar();
-    burgerBtnRef.classList.remove('app-navbar__burger-btn--is-open');
+    burgerBtnRef.setAttribute('aria-pressed', false);
   }
 
   state.isDesktop = isDesktop;

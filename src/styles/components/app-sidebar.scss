@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(to-rem(4));
-  background-color: var(--app-overlay-bg);
+  background-color: rgb(var(--col-total-black-rgb), 88%);
   opacity: 0;
   visibility: hidden;
 

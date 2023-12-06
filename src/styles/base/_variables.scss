@@ -98,16 +98,8 @@
 
   // App navbar
   --app-navbar-height: #{to-rem(70)};
-  --app-navbar-burger-btn-bg: rgba(#{$col-total-white-rgb}, 15%);
 
-  @include respond-above(tablet) {
-    --app-navbar-height: #{clamp(to-rem(80), vh(11.4), to-rem(100))};
+  @include respond-above(medium) {
+    --app-navbar-height: #{to-rem(100)};
   }
-
-  // App overlay
-  --app-overlay-bg: rgba(#{$col-total-black-rgb}, 88%);
-
-  // Auth type radio
-  --auth-type-radio-bg-hover: rgba(#{$col-total-white-rgb}, 15%);
-  --auth-type-radio-bg-checked: rgba(#{$col-total-white-rgb}, 35%);
 }
