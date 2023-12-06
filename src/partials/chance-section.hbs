@@ -1,0 +1,115 @@
+<section class='chance-section'>
+  <!-- breakpoints-1280-slides-per-view="4"
+    breakpoints-1280-enabled="false" -->
+
+  <div class='container'>
+    <swiper-container
+      class='chance-section__swiper-container'
+      slides-per-view='auto'
+      space-between='15'
+      auto-height='true'
+      autoplay='false'
+      speed='1000'
+      allow-touch-move='false'
+      slides-offset-before='68'
+      slides-offset-after='68'
+      navigation-next-el='.chance-section__swiper-btn--next'
+      navigation-prev-el='.chance-section__swiper-btn--prev'
+      a11y-slide-role='listitem'
+      a11y-container-role-description-message='Lista de possíveis bônus'
+      a11y-item-role-description-message='Possível bônus'
+    >
+      <div slot='container-start'>
+        <button
+          class='chance-section__swiper-btn chance-section__swiper-btn--prev'
+          type='button'
+        >
+          {{> svg-icon class='chance-section__swiper-btn-icon' width="24" height="24"
+      name='arrow-next' }}
+        </button>
+      </div>
+      <div slot='container-end'>
+        <button
+          class='chance-section__swiper-btn chance-section__swiper-btn--next'
+          type='button'
+        >
+          {{> svg-icon class='chance-section__swiper-btn-icon' width="24" height="24"
+      name='arrow-next' }}
+        </button>
+      </div>
+      {{#each list}}
+        <swiper-slide class='chance-section__swiper-slide'>
+          <div class='chance-section__slide-img-wrapper'>
+            <div class='chance-section__chance-wrapper'>
+              <div class='chance-section__chance'>{{chance}}</div>
+              <div>Chance</div>
+            </div>
+            <picture class='chance-section__slide-img'>
+              <source
+                type='image/webp'
+                srcset='
+                {{imgPath}}.webp    140w,
+                {{imgPath}}@2x.webp 280w
+              '
+                sizes='140px'
+              />
+              <source
+                type='image/png'
+                srcset='
+                {{imgPath}}.png    140w,
+                {{imgPath}}@2x.png 280w
+              '
+                sizes='140px'
+              />
+              <img
+                src='{{imgPath}}.png'
+                width='140'
+                height='140'
+                alt=''
+                loading='lazy'
+              />
+            </picture>
+          </div>
+          <p class='chance-section__slide-text'>{{text}}</p>
+        </swiper-slide>
+      {{/each}}
+      {{#each list}}
+        <swiper-slide class='chance-section__swiper-slide'>
+          <div class='chance-section__slide-img-wrapper'>
+            <div class='chance-section__chance-wrapper'>
+              <div class='chance-section__chance'>{{chance}}</div>
+              <div>Chance</div>
+            </div>
+            <picture class='chance-section__slide-img'>
+              <source
+                type='image/webp'
+                srcset='
+                {{imgPath}}.webp    140w,
+                {{imgPath}}@2x.webp 280w
+              '
+                sizes='140px'
+              />
+              <source
+                type='image/png'
+                srcset='
+                {{imgPath}}.png    140w,
+                {{imgPath}}@2x.png 280w
+              '
+                sizes='140px'
+              />
+              <img
+                src='{{imgPath}}.png'
+                width='140'
+                height='140'
+                alt=''
+                loading='lazy'
+              />
+            </picture>
+          </div>
+          <p class='chance-section__slide-text'>{{text}}</p>
+        </swiper-slide>
+      {{/each}}
+    </swiper-container>
+    <div class="chance-section__divider"> </div>
+  </div>
+</section>

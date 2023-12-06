@@ -65,7 +65,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: #{rgba(var(--col-total-white-rgb), 50%)};
+  background-color: rgb(var(--col-total-white-rgb), 50%);
   opacity: 0.5;
   transform: translateY(-50%);
   transition: background-color var(--hover-transition),

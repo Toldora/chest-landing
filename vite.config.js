@@ -5,6 +5,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import autoprefixer from 'autoprefixer';
 import * as fs from 'fs';
 import * as path from 'path';
+import { TEMPLATE_CONTEXT } from './src/template-context';
 
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relative => path.resolve(appDirectory, relative);
@@ -26,6 +27,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       handlebars({
         partialDirectory: path.resolve(__dirname, 'src/partials'),
+        context: TEMPLATE_CONTEXT,
       }),
       createHtmlPlugin({
         minify: true,

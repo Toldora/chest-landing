@@ -12,18 +12,25 @@
   --col-total-black: #{$col-total-black};
   --col-total-black-rgb: #{$col-total-black-rgb};
   --col-dark-tone-ink: #{$col-dark-tone-ink};
+  --col-shadow-warrior: #{$col-shadow-warrior};
   --col-tibetan-yellow: #{$col-tibetan-yellow};
+  --col-tibetan-yellow-rgb: #{$col-tibetan-yellow-rgb};
   --col-nuclear-fallout: #{$col-nuclear-fallout};
-  --col-key-lime: #{$col-key-lime};
   --col-gordons-green: #{$col-gordons-green};
+  --col-gordons-green-rgb: #{$col-gordons-green-rgb};
   --col-kuro-green: #{$col-kuro-green};
   --col-rich-olive: #{$col-rich-olive};
   --col-vermilion-cinnabar: #{$col-vermilion-cinnabar};
   --col-radiant-silver: #{$col-radiant-silver};
   --col-bilberry: #{$col-bilberry};
-
-  // ----------
-  --col-shadow-warrior: #{$col-shadow-warrior};
+  --col-bilious-brown: #{$col-bilious-brown};
+  --col-hollandaise: #{$col-hollandaise};
+  --col-tropical-funk: #{$col-tropical-funk};
+  --col-grass: #{$col-grass};
+  --col-classic-green: #{$col-classic-green};
+  --col-hazel-woods: #{$col-hazel-woods};
+  --col-protoss-pylon: #{$col-protoss-pylon};
+  --col-island-palm: #{$col-island-palm};
 
   // Z-indexes
   --z-modal-overlay: 14;
@@ -32,6 +39,7 @@
   --z-app-sidebar: 4;
   --z-sidebar-overlay: 2;
   --z-wheel: 2;
+  --z-chance-section-swiper-btn: 2;
   --z-default: 1;
   --z-hidden: -1;
 
@@ -66,7 +74,9 @@
   // Base
   --container-max-width: 100%;
   --container-side-padding: #{to-rem(20)};
-  --primary-text-color: var(--col-total-white);
+  --primary-text-color: rgb(var(--col-total-white-rgb), 70%);
+  --secondary-text-color: rgb(var(--col-total-white-rgb), 50%);
+  --primary-title-color: var(--col-total-white);
 
   @include respond-above(medium) {
     --container-max-width: #{to-rem(1100)};
@@ -83,7 +93,8 @@
   }
 
   // Common
-  --scrollbar-color: var(--primary-text-color);
+  --scrollbar-thumb-color: var(--col-bilberry);
+  --scrollbar-track-color: rgb(var(--col-total-white-rgb), 15%);
 
   // App navbar
   --app-navbar-height: #{to-rem(70)};

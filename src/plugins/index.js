@@ -1,1 +1,2 @@
 import './handlebars';
+import './swiper';

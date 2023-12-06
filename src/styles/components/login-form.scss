@@ -78,7 +78,7 @@
   width: 100%;
   height: to-rem(1);
   margin: to-rem(20) 0;
-  background-color: #697a6d;
+  background-color: var(--col-island-palm);
 
   @include respond-above(small) {
     margin: to-rem(16) 0;

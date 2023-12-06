@@ -60,7 +60,9 @@
     <div class="app">
       {{> app-navbar }}
 
-      <main class="main">{{> chest-section }} {{> chance-section }}</main>
+      <main class="main">
+        {{> chest-section }} {{> chance-section prizesCtx }}
+      </main>
     </div>
     {{> app-modal }} {{> app-sidebar }}
   </body>

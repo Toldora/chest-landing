@@ -1,0 +1,98 @@
+.chance-section__swiper-container {
+  position: relative;
+  height: to-rem(272);
+  display: flex;
+  align-items: center;
+  margin-bottom: to-rem(60);
+  border-radius: to-rem(10);
+  border: to-rem(1) solid var(--col-grass);
+  background-color: rgb(var(--col-gordons-green-rgb), 25%);
+  overflow: hidden;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.chance-section__swiper-btn {
+  position: absolute;
+  z-index: var(--z-chance-section-swiper-btn);
+  top: 0;
+  width: to-rem(38);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: to-rem(5);
+  background-color: var(--col-grass);
+  transition: background-color var(--hover-transition);
+
+  @include hover {
+    background-color: var(--col-classic-green);
+  }
+
+  &--prev {
+    left: to-rem(10);
+  }
+
+  &--next {
+    right: to-rem(10);
+  }
+}
+
+.chance-section__swiper-btn-icon {
+  color: var(--col-total-white);
+
+  .chance-section__swiper-btn--prev & {
+    rotate: 180deg;
+  }
+}
+
+.chance-section__swiper-slide {
+  height: to-rem(192);
+  width: to-rem(160);
+  padding: to-rem(10);
+  border-radius: to-rem(5);
+  background-color: var(--col-gordons-green);
+}
+
+.chance-section__slide-img-wrapper {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  aspect-ratio: 1;
+  margin-bottom: to-rem(10);
+  border-radius: to-rem(5);
+  background-color: var(--col-hazel-woods);
+}
+
+.chance-section__slide-img {
+  filter: drop-shadow(
+    0 to-rem(5) to-rem(40) rgb(var(--col-tibetan-yellow-rgb), 25%)
+  );
+}
+
+.chance-section__chance-wrapper {
+  position: absolute;
+  z-index: var(--z-default);
+  top: to-rem(5);
+  left: to-rem(5);
+  padding: to-rem(5) to-rem(10);
+  border-radius: to-rem(5);
+  background-color: rgb(var(--col-gordons-green-rgb), 80%);
+  font-size: to-rem(12);
+}
+
+.chance-section__chance {
+  font-size: to-rem(14);
+}
+
+.chance-section__slide-text {
+  font-size: to-rem(14);
+  font-weight: 700;
+  text-align: center;
+}
+
+.chance-section__divider {
+  width: 100%;
+  height: to-rem(1);
+  background-color: var(--col-hazel-woods);
+}
