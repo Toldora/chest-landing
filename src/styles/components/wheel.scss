@@ -25,7 +25,10 @@
 }
 
 .wheel {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 2px solid red;
   z-index: var(--z-wheel);
   overflow: hidden;
   flex-shrink: 0;
@@ -35,20 +38,12 @@
   filter: drop-shadow(0 to-rem(10) to-rem(50) var(--col-key-lime));
 
   @media (orientation: landscape) {
-    --size: #{min(46vw, vh(74))};
+    --size: #{to-rem(300)};
 
     max-width: var(--size);
     height: 0;
     flex-grow: 1;
     padding-bottom: var(--size);
-
-    @include respond-above(xmedium) {
-      --size: #{min(46vw, vh(66))};
-    }
-
-    @include respond-above(large) {
-      --size: #{min(46vw, vh(76))};
-    }
   }
 
   @media (orientation: portrait) {

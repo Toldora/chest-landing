@@ -6,6 +6,16 @@
 
 .chest-section {
   position: relative;
+  height: to-rem(500);
+  background-position: 70% bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include bg-img-webp('/img/chest-section/bg-hor', true);
+
+  @include high-resolution-screen {
+    @include bg-img-webp('/img/chest-section/bg-hor@2x', true);
+  }
 }
 
 .chest-section__title {
