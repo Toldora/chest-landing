@@ -221,6 +221,7 @@
     --decor-width: #{to-rem(5)};
 
     padding: to-rem(10);
+    grid-column-gap: to-rem(10);
     font-size: to-rem(12);
   }
 
