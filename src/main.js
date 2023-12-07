@@ -5,7 +5,7 @@ import '@/plugins';
 
 import '@/js/global-state';
 import '@/js/modal';
-import '@/js/wheel';
+import '@/js/chest';
 import { openSignUpModal } from '@/js/sign-up';
 import '@/js/sidebar';
 // import '@/js/terms-and-privacy';

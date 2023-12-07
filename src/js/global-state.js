@@ -1,16 +1,16 @@
 class GlobalState {
-  _wheelStage = 1;
+  _chestStage = 1;
 
-  get wheelStage() {
-    return this._wheelStage;
+  get chestStage() {
+    return this._chestStage;
   }
 
-  set wheelStage(value) {
-    this._wheelStage = value;
+  set chestStage(value) {
+    this._chestStage = value;
   }
 
   get isLastStage() {
-    return this._wheelStage >= 3;
+    return this._chestStage >= 3;
   }
 }
 

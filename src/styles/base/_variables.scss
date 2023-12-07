@@ -31,6 +31,8 @@
   --col-hazel-woods: #{$col-hazel-woods};
   --col-protoss-pylon: #{$col-protoss-pylon};
   --col-island-palm: #{$col-island-palm};
+  --col-envious-pastel: #{$col-envious-pastel};
+  --col-envious-pastel-rgb: #{$col-envious-pastel-rgb};
 
   // Z-indexes
   --z-modal-overlay: 14;
@@ -38,8 +40,7 @@
   --z-app-navbar: 7;
   --z-app-sidebar: 4;
   --z-sidebar-overlay: 2;
-  --z-wheel: 2;
-  --z-chance-section-swiper-btn: 2;
+  --z-raised: 2;
   --z-default: 1;
   --z-hidden: -1;
 

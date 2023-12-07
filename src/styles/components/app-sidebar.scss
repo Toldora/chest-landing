@@ -47,10 +47,6 @@
 
   @include bg-img-webp('/img/bg/sidebar-ver');
 
-  @include high-resolution-screen {
-    @include bg-img-webp('/img/bg/sidebar-ver@2x');
-  }
-
   .app-sidebar__overlay--is-visible & {
     transform: translateX(0);
   }

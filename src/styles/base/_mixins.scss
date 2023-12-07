@@ -48,11 +48,23 @@
 @mixin bg-img-webp($path, $is-png: false) {
   @if $is-png {
     background-image: url('#{$path}.png');
+
+    @include high-resolution-screen {
+      background-image: url('#{$path}@2x.png');
+    }
   } @else {
     background-image: url('#{$path}.jpg');
+
+    @include high-resolution-screen {
+      background-image: url('#{$path}@2x.jpg');
+    }
   }
 
   @supports (background-image: url('#{$path}.webp')) {
     background-image: url('#{$path}.webp');
+
+    @include high-resolution-screen {
+      background-image: url('#{$path}@2x.webp');
+    }
   }
 }
