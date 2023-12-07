@@ -6,6 +6,11 @@
   }
 }
 
+.box-contents__container {
+  position: relative;
+  overflow-x: hidden;
+}
+
 .box-contents__title {
   margin-bottom: to-rem(33);
   font-size: to-rem(24);
@@ -157,5 +162,50 @@
   @include respond-above(tablet) {
     height: to-rem(31);
     font-size: to-rem(12);
+  }
+}
+
+.box-contents__decor {
+  position: absolute;
+  z-index: var(--z-hidden);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(to-rem(100));
+  pointer-events: none;
+
+  // Optimization for out of viewport render
+  will-change: transform;
+
+  &--yellow {
+    top: 0;
+    right: 0;
+    transform: translateX(100%);
+    width: 90vw;
+    max-width: to-rem(600);
+    background-color: rgb(var(--col-hollandaise-rgb), 30%);
+
+    @include respond-above(medium) {
+      top: 50%;
+      max-width: unset;
+      width: 33vw;
+      transform: translate(110%, -50%);
+    }
+  }
+
+  &--green {
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    max-width: to-rem(700);
+    width: 130vw;
+    background-color: rgb(var(--col-tropical-funk-rgb), 30%);
+
+    @include respond-above(medium) {
+      top: 50%;
+      bottom: unset;
+      max-width: unset;
+      width: 45vw;
+      transform: translate(-110%, -50%);
+    }
   }
 }

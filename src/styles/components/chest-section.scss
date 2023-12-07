@@ -31,10 +31,6 @@
   }
 
   @include respond-above(large) {
-    background-position: 25% top;
-  }
-
-  @include respond-above(xlarge) {
     background-position: left top;
   }
 }

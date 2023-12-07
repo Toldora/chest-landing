@@ -25,6 +25,7 @@
   --col-bilberry: #{$col-bilberry};
   --col-bilious-brown: #{$col-bilious-brown};
   --col-hollandaise: #{$col-hollandaise};
+  --col-hollandaise-rgb: #{$col-hollandaise-rgb};
   --col-tropical-funk: #{$col-tropical-funk};
   --col-tropical-funk-rgb: #{$col-tropical-funk-rgb};
   --col-grass: #{$col-grass};
@@ -90,8 +91,12 @@
   }
 
   @include respond-above(large) {
-    --container-max-width: #{to-rem(1620)};
+    --container-max-width: #{to-rem(1360)};
     --container-side-padding: #{to-rem(50)};
+  }
+
+  @include respond-above(xlarge) {
+    --container-max-width: #{to-rem(1620)};
   }
 
   // Common
