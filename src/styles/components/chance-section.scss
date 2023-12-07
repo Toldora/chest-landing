@@ -1,3 +1,7 @@
+.chance-section {
+  margin-bottom: to-rem(30);
+}
+
 .chance-section__swiper-container {
   position: relative;
   height: to-rem(272);
@@ -66,7 +70,7 @@
 
 .chance-section__slide-img {
   filter: drop-shadow(
-    0 to-rem(5) to-rem(16) rgb(var(--col-tibetan-yellow-rgb), 75%)
+    0 to-rem(5) to-rem(16) rgb(var(--col-tibetan-yellow-rgb), 50%)
   );
 }
 
@@ -85,7 +89,7 @@
   font-size: to-rem(14);
 }
 
-.chance-section__slide-text {
+.chance-section__slide-title {
   font-size: to-rem(14);
   font-weight: 700;
   text-align: center;

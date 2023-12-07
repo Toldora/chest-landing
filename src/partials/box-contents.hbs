@@ -1,0 +1,44 @@
+<section class='box-contents'>
+  <div class='container'>
+    <h2 class='box-contents__title'>A caixa contém</h2>
+    <ul class='box-contents__cards-list'>
+      {{#each list}}
+        <li class='box-contents__card-item'>
+          <div class='box-contents__card-img-wrapper'>
+            <picture class='box-contents__card-img'>
+              <source
+                type='image/webp'
+                srcset='{{imgPath}}.webp 160w, {{imgPath}}@2x.webp 320w'
+                sizes='160px'
+              />
+              <source
+                type='image/png'
+                srcset='{{imgPath}}.png 160w, {{imgPath}}@2x.png 320w'
+                sizes='160px'
+              />
+              <img
+                src='{{imgPath}}.png'
+                width='160'
+                height='160'
+                alt=''
+                loading='lazy'
+              />
+            </picture>
+          </div>
+          <div class='box-contents__chance-wrapper'>
+            <p>{{chance}}</p>
+            {{#if isStared}}
+              <div class='box-contents__star-icon-wrapper'>
+                {{> svg-icon width="12" height="12" name='star' }}
+              </div>
+            {{/if}}
+            <p class='box-contents__chance'>Chance</p>
+          </div>
+          <h4 class='box-contents__card-title'>{{title}}</h4>
+          <p class='box-contents__card-text'>{{text}}</p>
+          <div class='box-contents__card-remains'>Restam 12 casos</div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</section>
