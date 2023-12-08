@@ -1,14 +1,14 @@
 .box-contents {
-  margin-bottom: to-rem(40);
+  padding-bottom: to-rem(40);
 
   @include respond-above(tablet) {
-    margin-bottom: to-rem(90);
+    padding-bottom: to-rem(90);
   }
 }
 
 .box-contents__container {
   position: relative;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .box-contents__title {
