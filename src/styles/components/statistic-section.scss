@@ -4,14 +4,13 @@
 
 .statistic-section__container {
   min-height: to-rem(80);
-  max-width: to-rem(540);
+  max-width: to-rem(490);
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: to-rem(20);
-  padding-top: to-rem(20);
-  padding-bottom: to-rem(20);
+  padding: to-rem(20);
   white-space: nowrap;
 }
 

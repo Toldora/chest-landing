@@ -1,0 +1,26 @@
+<footer class="app-footer">
+  <div class="app-footer__container container">
+    <a class="app-footer__logo-link" href="#" aria-label="Pagina inicial">
+      {{> svg-icon class='app-footer__logo' width="152" height="30"
+      name='logo-large' }}
+    </a>
+    <div>
+      <p>Algo sobre direitos de propriedade.</p>
+      <p class="app-footer__terms-accent">Direitos autorais 2023.</p>
+    </div>
+    <ul class="app-footer__social-list">
+      {{#each list}}
+      <li class="app-footer__social-list-item">
+        <a
+          class="app-footer__social-link"
+          href="{{href}}"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+        >
+          {{> svg-icon width="24" height="24" name=(lookup . 'icon') }}
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</footer>
