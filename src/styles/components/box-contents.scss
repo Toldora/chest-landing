@@ -1,5 +1,6 @@
 .box-contents {
   padding-bottom: to-rem(40);
+  overflow-x: clip;
 
   @include respond-above(tablet) {
     padding-bottom: to-rem(90);
@@ -8,7 +9,6 @@
 
 .box-contents__container {
   position: relative;
-  overflow-x: clip;
 }
 
 .box-contents__title {
@@ -205,7 +205,7 @@
       bottom: unset;
       max-width: unset;
       width: 45vw;
-      transform: translate(-110%, -50%);
+      transform: translate(-105%, -30%);
     }
   }
 }
