@@ -112,7 +112,7 @@ const onSubmit = async event => {
 
 export const openSignUpModal = ({ isBlocked } = {}) => {
   const markup = handlebars.compile(template)({
-    wheelStage: globalState.wheelStage,
+    chestStage: globalState.chestStage,
   });
 
   modalContentRef.innerHTML = '';

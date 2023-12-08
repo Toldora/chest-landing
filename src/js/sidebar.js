@@ -1,7 +1,9 @@
 import { throttle } from 'lodash-es';
+import { openSignUpModal } from '@/js/sign-up';
 
 const burgerBtnRef = document.querySelector('.js-burger-btn');
 const sidebarRef = document.querySelector('.js-app-sidebar');
+const signUpBtnRef = sidebarRef.querySelector('.js-sidebar-sign-up-btn');
 
 const sidebarStyles = getComputedStyle(sidebarRef);
 
@@ -19,6 +21,7 @@ const openSidebar = () => {
   );
 
   sidebarRef.addEventListener('click', onClickOverlay);
+  signUpBtnRef.addEventListener('click', openSignUpModal);
 };
 
 const closeSidebar = event => {
@@ -51,6 +54,7 @@ const onClickOverlay = event => {
   if (event.target !== event.currentTarget || !state.isOpenedSidebar) return;
 
   closeSidebar(event);
+  burgerBtnRef.setAttribute('aria-pressed', false);
 };
 
 const handleResize = () => {

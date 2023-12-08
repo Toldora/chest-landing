@@ -3,9 +3,9 @@
   z-index: var(--z-sidebar-overlay);
   top: 0;
   left: 0;
-  display: flex;
   width: 100vw;
   height: vh(100);
+  display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(to-rem(4));
@@ -31,21 +31,19 @@
   top: 0;
   right: 0;
   bottom: 0;
-  display: flex;
   width: min(100%, #{to-rem(480)});
-  align-items: center;
-  justify-content: center;
-  padding: var(--app-navbar-height) to-rem(20) to-rem(32);
+  padding-top: var(--app-navbar-height);
+  background-color: var(--col-shadow-warrior);
+  background-size: 100% auto;
   background-position: center bottom;
   background-repeat: no-repeat;
-  background-size: cover;
   overflow-y: auto;
   overscroll-behavior: none;
   transform: translateX(100%);
   user-select: none;
   will-change: transform;
 
-  @include bg-img-webp('/img/bg/sidebar-ver');
+  @include bg-img-webp('/img/sidebar/bg-ver');
 
   .app-sidebar__overlay--is-visible & {
     transform: translateX(0);
@@ -58,25 +56,53 @@
   }
 }
 
-.app-sidebar__nav-list {
+.app-sidebar__inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding: to-rem(30) to-rem(20) to-rem(100);
+  background-image: linear-gradient(
+    to bottom,
+    var(--col-shadow-warrior),
+    var(--col-shadow-warrior) 55%,
+    transparent 100%
+  );
 }
 
-.app-sidebar__nav-list-item {
-  &:not(:last-child) {
-    margin-bottom: to-rem(40);
-  }
+.app-sidebar__sign-up-btn {
+  width: 100%;
+  margin-bottom: to-rem(25);
 
-  button {
+  &.app-sidebar__sign-up-btn {
     font-size: to-rem(18);
-    text-transform: uppercase;
-    transition: color var(--hover-transition);
+  }
+}
 
-    @include hover {
-      color: var(--col-tibetan-yellow);
-    }
+.app-sidebar__socials-title {
+  margin-bottom: to-rem(10);
+  font-size: to-rem(16);
+}
+
+.app-sidebar__social-list {
+  display: flex;
+  align-items: center;
+}
+
+.app-sidebar__social-list-item {
+  &:not(:last-child) {
+    margin-right: to-rem(20);
+  }
+}
+
+.app-sidebar__social-link {
+  display: flex;
+  padding: to-rem(8);
+  border-radius: to-rem(5);
+  background-color: var(--col-gordons-green);
+  color: rgb(var(--col-total-white-rgb), 30%);
+  transition: color var(--hover-transition);
+
+  @include hover {
+    color: var(--col-total-white);
   }
 }

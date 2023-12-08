@@ -1,0 +1,28 @@
+<div class="app-sidebar__overlay js-app-sidebar">
+  <aside class="app-sidebar__content">
+    <div class="app-sidebar__inner">
+      <button
+        class="app-button app-sidebar__sign-up-btn js-sidebar-sign-up-btn"
+        type="button"
+        aria-label="Inscrever-se"
+      >
+        Inscrever-se
+      </button>
+      <h4 class="app-sidebar__socials-title">Nossas redes sociais:</h4>
+      <ul class="app-sidebar__social-list">
+        {{#each list}}
+        <li class="app-sidebar__social-list-item">
+          <a
+            class="app-sidebar__social-link"
+            href="{{href}}"
+            target="_blank"
+            rel="nofollow noopener noreferrer"
+          >
+            {{> svg-icon width="24" height="24" name=(lookup . 'icon') }}
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </aside>
+</div>
