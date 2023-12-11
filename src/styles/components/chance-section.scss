@@ -30,7 +30,9 @@
   transition: background-color var(--hover-transition);
 
   @include hover {
-    background-color: var(--col-classic-green);
+    &:not(.swiper-button-disabled):not(:disabled) {
+      background-color: var(--col-classic-green);
+    }
   }
 
   &--prev {
