@@ -42,22 +42,22 @@
   }
 }
 
-.app-navbar__social-list-item {
-  display: flex;
+// .app-navbar__social-list-item {
+//   display: flex;
 
-  &:not(:last-child) {
-    margin-right: to-rem(20);
-  }
-}
+//   &:not(:last-child) {
+//     margin-right: to-rem(20);
+//   }
+// }
 
-.app-navbar__social-link {
-  color: rgb(var(--col-total-white-rgb), 30%);
-  transition: color var(--hover-transition);
+// .app-navbar__social-link {
+//   color: rgb(var(--col-total-white-rgb), 30%);
+//   transition: color var(--hover-transition);
 
-  @include hover {
-    color: var(--col-total-white);
-  }
-}
+//   @include hover {
+//     color: var(--col-total-white);
+//   }
+// }
 
 // .app-navbar__sign-up-btn {
 //   display: none;

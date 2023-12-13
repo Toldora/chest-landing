@@ -16,54 +16,65 @@
         <p>Você ganhou
           <span class='sign-up-form__accent-text'>250 Giros Gratis</span></p>
         {{#isGreaterOrEqual chestStage 3}}
-          <p>e bônus <span class='sign-up-form__accent-text'>1500 R$</span></p>
+          <p>e bônus <span class='sign-up-form__accent-text'>4000 R$</span></p>
         {{/isGreaterOrEqual}}
       </div>
     {{/isGreaterOrEqual}}
 
     {{#isGreaterOrEqual chestStage 2}}
-      <div class='sign-up-form__bonus-img-row'>
-        <picture class='sign-up-form__bonus-img'>
-          <source
-            type='image/webp'
-            srcset='/img/bonus-1.webp 80w, /img/bonus-1@2x.webp 160w'
-            sizes='80px'
-          />
-          <source
-            type='image/png'
-            srcset='/img/bonus-1.png 80w, /img/bonus-1@2x.png 160w'
-            sizes='80px'
-          />
-          <img
-            src='/img/bonus-1.png'
-            width='80'
-            height='80'
-            alt=''
-            loading='lazy'
-          />
-        </picture>
-        {{#isGreaterOrEqual chestStage 3}}
+      <ul class='sign-up-form__bonus-img-row'>
+        <li class='sign-up-form__bonus-img-wrapper'>
           <picture class='sign-up-form__bonus-img'>
             <source
               type='image/webp'
-              srcset='/img/bonus-2.webp 80w, /img/bonus-2@2x.webp 160w'
+              srcset='
+              /img/prizes/present.webp     80w,
+              /img/prizes/present@2x.webp 160w
+            '
               sizes='80px'
             />
             <source
               type='image/png'
-              srcset='/img/bonus-2.png 80w, /img/bonus-2@2x.png 160w'
+              srcset='
+              /img/prizes/present.png     80w,
+              /img/prizes/present@2x.png 160w
+            '
               sizes='80px'
             />
             <img
-              src='/img/bonus-2.png'
+              src='/img/prizes/present.png'
               width='80'
               height='80'
               alt=''
               loading='lazy'
             />
           </picture>
+        </li>
+        {{#isGreaterOrEqual chestStage 3}}
+          <li class='sign-up-form__bonus-img-wrapper'>
+
+            <picture class='sign-up-form__bonus-img'>
+              <source
+                type='image/webp'
+                srcset='/img/prizes/chest.webp 80w, /img/prizes/chest@2x.webp 160w'
+                sizes='80px'
+              />
+              <source
+                type='image/png'
+                srcset='/img/prizes/chest.png 80w, /img/prizes/chest@2x.png 160w'
+                sizes='80px'
+              />
+              <img
+                src='/img/prizes/chest.png'
+                width='80'
+                height='80'
+                alt=''
+                loading='lazy'
+              />
+            </picture>
+          </li>
         {{/isGreaterOrEqual}}
-      </div>
+      </ul>
     {{/isGreaterOrEqual}}
 
     {{> auth-type-radio }}
@@ -105,7 +116,10 @@
             minlength='6'
             autocomplete='off'
           />
-          <button class="sign-up-form__pass-input-btn js-pass-input-btn" type="button"></button>
+          <button
+            class='sign-up-form__pass-input-btn js-pass-input-btn'
+            type='button'
+          ></button>
         </div>
       </label>
     </div>

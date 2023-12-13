@@ -137,31 +137,12 @@
   }
 }
 
-.box-contents__card-text {
-  margin-bottom: to-rem(10);
-  font-size: to-rem(11);
+.box-contents__card-remains {
+  color: var(--col-grass);
+  font-size: to-rem(12);
 
   @include respond-above(tablet) {
     font-size: to-rem(14);
-  }
-}
-
-.box-contents__card-remains {
-  width: 100%;
-  height: to-rem(24);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: to-rem(4);
-  border: to-rem(1) solid var(--col-grass);
-  font-size: to-rem(10);
-  font-weight: 700;
-  color: var(--col-total-white);
-  text-transform: uppercase;
-
-  @include respond-above(tablet) {
-    height: to-rem(31);
-    font-size: to-rem(12);
   }
 }
 

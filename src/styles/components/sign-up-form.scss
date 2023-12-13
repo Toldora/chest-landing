@@ -39,13 +39,30 @@
   justify-content: center;
 }
 
-.sign-up-form__bonus-img {
-  width: to-rem(80);
-  height: to-rem(80);
+.sign-up-form__bonus-img-wrapper {
+  --size: #{to-rem(80)};
+
+  display: flex;
+  width: var(--size);
+  height: var(--size);
+  padding: to-rem(10);
+  border-radius: to-rem(8);
+  background-color: var(--col-hazel-woods);
+
+  @include respond-above(tablet) {
+    --size: #{to-rem(100)};
+  }
 
   &:not(:last-child) {
     margin-right: to-rem(30);
   }
+}
+
+.sign-up-form__bonus-img {
+  width: 100%;
+  filter: drop-shadow(
+    0 to-rem(10) to-rem(12) rgb(var(--col-tibetan-yellow-rgb), 100%)
+  );
 }
 
 .sign-up-form__auth-inputs {
