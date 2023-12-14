@@ -2,12 +2,13 @@
   margin-bottom: to-rem(30);
 }
 
-.chance-section__swiper-container {
+.chance-section__swiper-container-wrapper {
   position: relative;
   height: to-rem(272);
   display: flex;
   align-items: center;
   margin-bottom: to-rem(60);
+  padding: 0 to-rem(61);
   border-radius: to-rem(10);
   border: to-rem(1) solid var(--col-grass);
   background-color: rgb(var(--col-gordons-green-rgb), 25%);
@@ -16,12 +17,16 @@
   text-transform: uppercase;
 }
 
+.chance-section__swiper-container {
+  overflow: hidden;
+}
+
 .chance-section__swiper-btn {
   position: absolute;
   z-index: var(--z-raised);
-  top: 0;
+  top: to-rem(10);
   width: to-rem(38);
-  height: 100%;
+  height: calc(100% - #{to-rem(20)});
   display: flex;
   align-items: center;
   justify-content: center;
