@@ -28,6 +28,11 @@ export default defineConfig(({ mode }) => {
       handlebars({
         partialDirectory: path.resolve(__dirname, 'src/partials'),
         context: TEMPLATE_CONTEXT,
+        helpers: {
+          isGreaterOrEqual(arg1, arg2, options) {
+            return arg1 >= arg2 ? options.fn(this) : options.inverse(this);
+          },
+        },
       }),
       createHtmlPlugin({
         minify: true,

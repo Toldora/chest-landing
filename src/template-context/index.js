@@ -3,7 +3,9 @@ import socialCtx from './social-ctx';
 import statisticCtx from './statistic-ctx';
 
 export const TEMPLATE_CONTEXT = {
-  prizesCtx,
+  chanceSectionCtx: { list: [...prizesCtx.list, ...prizesCtx.list] },
+
+  boxContentsSectionCtx: prizesCtx,
 
   socialCtx,
 

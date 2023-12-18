@@ -1,7 +1,7 @@
 const statisticCtx = {
-  users: '241 512',
-  cases: '154 392',
-  online: '241 512',
+  users: '172 301',
+  cases: '2 344',
+  online: '124',
 };
 
 export default statisticCtx;

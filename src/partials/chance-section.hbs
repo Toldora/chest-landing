@@ -23,74 +23,50 @@
       >
         {{#each list}}
           <swiper-slide class='chance-section__swiper-slide'>
-            <div class='chance-section__slide-img-wrapper'>
-              <div class='chance-section__chance-wrapper'>
-                <div class='chance-section__chance'>{{chance}}</div>
-                <div>Chance</div>
-              </div>
-              <picture class='chance-section__slide-img'>
-                <source
-                  type='image/webp'
-                  srcset='
+            <div class='chance-section__swiper-slide-content'>
+              <div class='chance-section__slide-img-wrapper'>
+                <div class='chance-section__chance-wrapper'>
+                  <div class='
+                    chance-section__chance
+                    {{#isGreaterOrEqual chance 20}}
+                      chance-section__chance--common
+                    {{/isGreaterOrEqual}}
+                    {{#isGreaterOrEqual chance 11}}
+                      chance-section__chance--uncommon
+                    {{/isGreaterOrEqual}}
+                  '>
+                  {{chance}}%
+                  </div>
+                  <div>Chance</div>
+                </div>
+                <picture class='chance-section__slide-img'>
+                  <source
+                    type='image/webp'
+                    srcset='
                 {{imgPath}}.webp    140w,
                 {{imgPath}}@2x.webp 280w
               '
-                  sizes='140px'
-                />
-                <source
-                  type='image/png'
-                  srcset='
+                    sizes='140px'
+                  />
+                  <source
+                    type='image/png'
+                    srcset='
                 {{imgPath}}.png    140w,
                 {{imgPath}}@2x.png 280w
               '
-                  sizes='140px'
-                />
-                <img
-                  src='{{imgPath}}.png'
-                  width='140'
-                  height='140'
-                  alt=''
-                  loading='lazy'
-                />
-              </picture>
-            </div>
-            <p class='chance-section__slide-title'>{{title}}</p>
-          </swiper-slide>
-        {{/each}}
-        {{#each list}}
-          <swiper-slide class='chance-section__swiper-slide'>
-            <div class='chance-section__slide-img-wrapper'>
-              <div class='chance-section__chance-wrapper'>
-                <div class='chance-section__chance'>{{chance}}</div>
-                <div>Chance</div>
+                    sizes='140px'
+                  />
+                  <img
+                    src='{{imgPath}}.png'
+                    width='140'
+                    height='140'
+                    alt=''
+                    loading='lazy'
+                  />
+                </picture>
               </div>
-              <picture class='chance-section__slide-img'>
-                <source
-                  type='image/webp'
-                  srcset='
-                {{imgPath}}.webp    140w,
-                {{imgPath}}@2x.webp 280w
-              '
-                  sizes='140px'
-                />
-                <source
-                  type='image/png'
-                  srcset='
-                {{imgPath}}.png    140w,
-                {{imgPath}}@2x.png 280w
-              '
-                  sizes='140px'
-                />
-                <img
-                  src='{{imgPath}}.png'
-                  width='140'
-                  height='140'
-                  alt=''
-                  loading='lazy'
-                />
-              </picture>
+              <p class='chance-section__slide-title'>{{title}}</p>
             </div>
-            <p class='chance-section__slide-title'>{{title}}</p>
           </swiper-slide>
         {{/each}}
       </swiper-container>

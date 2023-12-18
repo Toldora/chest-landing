@@ -1,4 +1,5 @@
 import { globalState } from '@/js/global-state';
+import { runFirstChestAnimation } from '@/plugins/swiper';
 // import { setToLS } from '@/js/local-storage';
 // import { openSignUpModal } from '@/js/sign-up';
 
@@ -77,5 +78,7 @@ export const setChestLastStage = () => {
   globalState.chestStage = 3;
 };
 
-chestRef.addEventListener('click', onClickChest);
-openChestBtnRef.addEventListener('click', onClickChest);
+chestRef.addEventListener('click', runFirstChestAnimation);
+openChestBtnRef.addEventListener('click', runFirstChestAnimation);
+// chestRef.addEventListener('click', onClickChest);
+// openChestBtnRef.addEventListener('click', onClickChest);
