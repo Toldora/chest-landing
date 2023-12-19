@@ -87,6 +87,7 @@
   display: grid;
   grid-template-columns: 1fr auto;
   margin-bottom: to-rem(8);
+  color: var(--col-bilious-brown);
   font-size: to-rem(9);
   text-transform: uppercase;
 
@@ -94,10 +95,19 @@
     margin-bottom: to-rem(11);
     font-size: to-rem(12);
   }
+
+  &--uncommon {
+    color: var(--col-hollandaise);
+  }
+
+  &--common {
+    color: var(--col-tropical-funk);
+  }
 }
 
 .box-contents__chance {
   grid-row-start: 2;
+  color: var(--primary-text-color);
   font-size: to-rem(8);
 
   @include respond-above(tablet) {

@@ -3,6 +3,10 @@
 @import './base/helpers';
 @import './base/app';
 
+// Plugins
+@import 'swiper/css/bundle';
+@import './plugins/swiper';
+
 // Components
 @import './components/scrollbar';
 @import './components/svg-icon';

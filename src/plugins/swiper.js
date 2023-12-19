@@ -1,24 +1,47 @@
-import { register } from 'swiper/element/bundle';
-register();
-
-const swiperEl = document.querySelector('.js-chance-swiper');
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
 
 const params = {
+  modules: [Navigation, Pagination],
+  initialSlide: 8,
   loop: true,
-  centeredSlides: true,
-  slidesPerView: 'auto',
+  loopPreventsSliding: false,
+  centeredSlides: false,
+  allowTouchMove: true,
+  grabCursor: true,
+  slidesPerView: 2,
   spaceBetween: 15,
   autoplay: false,
-  speed: 1000,
-  allowTouchMove: false,
-  allowSlideNext: true,
+  speed: 500,
+  breakpoints: {
+    540: {
+      slidesPerView: 3,
+      centeredSlides: true,
+    },
+    700: {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+    },
+    868: {
+      slidesPerView: 'auto',
+      centeredSlides: true,
+      allowTouchMove: false,
+      grabCursor: false,
+    },
+  },
   preventInteractionOnTransition: false,
-  // autoplay: {
-  //   delay: 500,
-  //   waitForTransition: false,
-  //   disableOnInteraction: false,
-  // },
-  slideActiveClass: 'chance-section__swiper-slide--chosen',
+  navigation: {
+    nextEl: '.chance-section__swiper-btn--next',
+    prevEl: '.chance-section__swiper-btn--prev',
+  },
+  pagination: {
+    el: '.chance-section__pagination',
+    dynamicBullets: true,
+    dynamicMainBullets: 7,
+    renderBullet: (_, className) => {
+      return `<span class="${className} chance-section__pagination-bullet"></span>`;
+    },
+  },
   a11y: {
     slideRole: 'listitem',
     containerRoleDescriptionMessage: 'Lista de possíveis bônus',
@@ -26,42 +49,4 @@ const params = {
   },
 };
 
-Object.assign(swiperEl, params);
-
-swiperEl.initialize();
-
-const nextBtnRef = document.querySelector('.chance-section__swiper-btn--next');
-const prevBtnRef = document.querySelector('.chance-section__swiper-btn--prev');
-
-nextBtnRef.addEventListener('click', () => {
-  swiperEl.swiper.slideNext();
-});
-
-prevBtnRef.addEventListener('click', () => {
-  swiperEl.swiper.slidePrev();
-});
-
-export const runFirstChestAnimation = () => {
-  const { swiper } = swiperEl;
-  if (!swiper) return;
-
-  swiper.slideToLoop(0, 100);
-
-  let counter = 0;
-
-  const interval = setInterval(() => {
-    if (counter > 20) {
-      clearInterval(interval);
-      return;
-    }
-
-    swiper.slideNext(200);
-    // swiper.slideToLoop(swiper.realIndex + 1, 100);
-    console.log('add');
-    counter += 1;
-  }, 200);
-};
-
-// setTimeout(() => {
-//   runFirstChestAnimation();
-// }, 1000);
+new Swiper('.js-chance-swiper', params);

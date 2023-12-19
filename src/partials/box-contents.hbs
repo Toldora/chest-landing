@@ -25,7 +25,14 @@
               />
             </picture>
           </div>
-          <div class='box-contents__chance-wrapper'>
+          <div class='box-contents__chance-wrapper
+             {{#isGreaterOrEqual chance 20}}
+               box-contents__chance-wrapper--common
+             {{/isGreaterOrEqual}}
+             {{#isGreaterOrEqual chance 11}}
+               box-contents__chance-wrapper--uncommon
+             {{/isGreaterOrEqual}}
+             '>
             <p>{{chance}}%</p>
             {{#if isStared}}
               <div class='box-contents__star-icon-wrapper'>
@@ -35,7 +42,7 @@
             <p class='box-contents__chance'>Chance</p>
           </div>
           <h3 class='box-contents__card-title'>{{title}}</h3>
-          <p class='box-contents__card-remains'>Restam 12 casos</p>
+          <p class='box-contents__card-remains'>Restam {{casesLeft}} casos</p>
         </li>
       {{/each}}
     </ul>

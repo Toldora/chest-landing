@@ -62,9 +62,13 @@
   @include bg-img-webp('/img/chest-section/main-chest', true);
 
   @include hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 to-rem(34) rgb(var(--col-envious-pastel-rgb), 80%));
-    cursor: pointer;
+    body:not(.chest-stage-3) & {
+      transform: scale(1.1);
+      filter: drop-shadow(
+        0 0 to-rem(34) rgb(var(--col-envious-pastel-rgb), 80%)
+      );
+      cursor: pointer;
+    }
   }
 
   @include respond-above(tablet) {
@@ -115,10 +119,14 @@
   transition-property: background-position, box-shadow;
   transition-duration: var(--slow-transition-duration);
   transition-timing-function: var(--hover-transition-timing-function);
+  cursor: default;
 
   @include hover {
-    background-position-x: -15%;
-    box-shadow: 0 to-rem(4) to-rem(50) var(--col-tibetan-yellow);
+    body:not(.chest-stage-3) & {
+      background-position-x: -15%;
+      box-shadow: 0 to-rem(4) to-rem(50) var(--col-tibetan-yellow);
+      cursor: pointer;
+    }
   }
 
   @include respond-to(tablet) {

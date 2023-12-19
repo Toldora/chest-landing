@@ -1,0 +1,12 @@
+:root {
+  --swiper-pagination-color: var(--col-grass);
+  --swiper-pagination-bottom: -#{to-rem(30)};
+  --swiper-pagination-top: auto;
+  --swiper-pagination-bullet-size: #{to-rem(10)};
+  --swiper-pagination-bullet-width: #{to-rem(10)};
+  --swiper-pagination-bullet-height: #{to-rem(10)};
+  --swiper-pagination-bullet-inactive-color: transparent;
+  --swiper-pagination-bullet-inactive-opacity: 1;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: #{to-rem(5)};
+}
