@@ -69,7 +69,7 @@ const onSubmit = async event => {
       formRef.fieldset.disabled = false;
     }
     if (formRef.submitBtn) {
-      formRef.submitBtn.textContent = 'Inscrever-se';
+      formRef.submitBtn.textContent = 'Conecte-se';
     }
   }
 };

@@ -14,7 +14,9 @@
   text-align: center;
 
   @include respond-to(small) {
-    padding-left: var(--close-modal-btn-size-small, 0);
+    body:not(.chest-stage-3) & {
+      padding-left: var(--close-modal-btn-size-small, 0);
+    }
   }
 }
 

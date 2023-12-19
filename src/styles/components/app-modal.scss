@@ -41,7 +41,6 @@
   font-size: to-rem(14);
   font-weight: 400;
   line-height: 1.3;
-  overflow-y: auto;
 
   @include respond-above(small) {
     max-width: to-rem(400);
@@ -49,6 +48,8 @@
     max-height: vh(95);
     border-radius: to-rem(16);
     background-color: var(--col-gordons-green);
+    overflow-y: auto;
+    overscroll-behavior: none;
   }
 }
 
@@ -79,6 +80,10 @@
       color: var(--col-total-white);
     }
   }
+
+  .chest-stage-3 & {
+    display: none;
+  }
 }
 
 .app-modal__close-btn-icon {
@@ -101,6 +106,11 @@
   width: 100%;
   height: 100%;
   padding: to-rem(40) to-rem(32);
+
+  @include respond-to(small) {
+    overflow-y: auto;
+    overscroll-behavior: none;
+  }
 
   @include respond-above(small) {
     padding: to-rem(32);
