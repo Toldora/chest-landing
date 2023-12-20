@@ -22,38 +22,38 @@ const SECOND_WINNER_SLIDE_INDEX = 1;
 const FIRST_ANIMATION_STEPS = [
   {
     timingFunction: 'linear',
-    timeout: 3000,
+    timeout: 2500,
     eventFunction: swiper => {
-      swiper.slidePrev(60);
+      swiper.slidePrev(90);
     },
   },
   {
     timingFunction: 'linear',
-    timeout: 1500,
+    timeout: 1300,
     eventFunction: swiper => {
-      swiper.slidePrev(120);
+      swiper.slidePrev(140);
     },
   },
   {
-    slideIndex: FIRST_WINNER_SLIDE_INDEX,
-    timingFunction: 'cubic-bezier(0.04, 0.25, 0, 1.74)',
-    timeout: 2000,
+    timingFunction: 'linear',
+    timeout: 900,
     eventFunction: swiper => {
-      const { progressLoop, slides } = swiper;
-      const index =
-        progressLoop > 0.5
-          ? FIRST_WINNER_SLIDE_INDEX
-          : FIRST_WINNER_SLIDE_INDEX + TOTAL_SLIDES_QUANTITY;
-
-      swiper.slideToLoop(index, 2000);
-
-      setTimeout(() => {
-        const winnerSlide = slides[index];
-        winnerSlide.classList.add(
-          'chance-section__swiper-slide--chosen',
-          'chance-section__swiper-slide--chosen-1',
-        );
-      }, 2000);
+      swiper.slidePrev(200);
+    },
+  },
+  {
+    timingFunction: 'linear',
+    timeout: 1800,
+    eventFunction: swiper => {
+      const { realIndex } = swiper;
+      if (
+        realIndex === FIRST_WINNER_SLIDE_INDEX ||
+        realIndex === FIRST_WINNER_SLIDE_INDEX + TOTAL_SLIDES_QUANTITY
+      ) {
+        return;
+      } else {
+        swiper.slidePrev(250);
+      }
     },
   },
 ];
@@ -61,55 +61,38 @@ const FIRST_ANIMATION_STEPS = [
 const SECOND_ANIMATION_STEPS = [
   {
     timingFunction: 'linear',
-    timeout: 2800,
-    speed: 60,
+    timeout: 2300,
     eventFunction: swiper => {
-      swiper.slideNext(60);
+      swiper.slideNext(90);
     },
   },
   {
     timingFunction: 'linear',
-    timeout: 1000,
-    speed: 120,
+    timeout: 1100,
     eventFunction: swiper => {
-      swiper.slideNext(120);
+      swiper.slideNext(140);
     },
   },
   {
-    slideIndex: SECOND_WINNER_SLIDE_INDEX + 1,
-    timingFunction: 'cubic-bezier(0.04, 0.25, 0, 1.74)',
-    timeout: 2000,
+    timingFunction: 'linear',
+    timeout: 1300,
     eventFunction: swiper => {
-      const { progressLoop } = swiper;
-      state.prevProgressLoop = progressLoop;
-      const index =
-        progressLoop > 0.5
-          ? SECOND_WINNER_SLIDE_INDEX - 1
-          : SECOND_WINNER_SLIDE_INDEX - 1 + TOTAL_SLIDES_QUANTITY;
-
-      swiper.slideToLoop(index, 2000);
+      swiper.slideNext(200);
     },
   },
   {
-    slideIndex: SECOND_WINNER_SLIDE_INDEX,
-    timingFunction: 'ease',
-    timeout: 700,
+    timingFunction: 'linear',
+    timeout: 1800,
     eventFunction: swiper => {
-      const { slides } = swiper;
-      const index =
-        state.prevProgressLoop > 0.5
-          ? SECOND_WINNER_SLIDE_INDEX
-          : SECOND_WINNER_SLIDE_INDEX + TOTAL_SLIDES_QUANTITY;
-
-      swiper.slideToLoop(index, 700);
-
-      setTimeout(() => {
-        const winnerSlide = slides[index];
-        winnerSlide.classList.add(
-          'chance-section__swiper-slide--chosen',
-          'chance-section__swiper-slide--chosen-2',
-        );
-      }, 700);
+      const { realIndex } = swiper;
+      if (
+        realIndex === SECOND_WINNER_SLIDE_INDEX ||
+        realIndex === SECOND_WINNER_SLIDE_INDEX + TOTAL_SLIDES_QUANTITY
+      ) {
+        return;
+      } else {
+        swiper.slideNext(250);
+      }
     },
   },
 ];
@@ -134,9 +117,12 @@ const runFirstChestAnimation = () => {
   swiper.on('slideChangeTransitionEnd', step.eventFunction);
 
   if (!state.animationStep) {
-    resetSwiperTransitionFunction();
+    document.documentElement.style.setProperty(
+      '--swiper-wrapper-transition-timing-function',
+      'cubic-bezier(0.55, 0.06, 0.68, 0.19)',
+    );
 
-    swiper.slidePrev(800);
+    swiper.slidePrev(500);
   }
 
   document.documentElement.style.setProperty(
@@ -166,9 +152,12 @@ const runSecondChestAnimation = () => {
   swiper.on('slideChangeTransitionEnd', step.eventFunction);
 
   if (!state.animationStep) {
-    resetSwiperTransitionFunction();
+    document.documentElement.style.setProperty(
+      '--swiper-wrapper-transition-timing-function',
+      'cubic-bezier(0.55, 0.06, 0.68, 0.19)',
+    );
 
-    swiper.slideNext(800);
+    swiper.slideNext(500);
   }
 
   document.documentElement.style.setProperty(
@@ -223,7 +212,10 @@ const onClickChest = () => {
         globalState.chestStage += 1;
 
         setToLS('isLastStage', globalState.isLastStage);
-        openSignUpModal({ isBlocked: true });
+
+        setTimeout(() => {
+          openSignUpModal({ isBlocked: true });
+        }, 500);
 
         break;
 

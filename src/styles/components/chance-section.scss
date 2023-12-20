@@ -89,16 +89,7 @@
   transition: border-color var(--hover-transition),
     box-shadow var(--hover-transition);
 
-  .chest-stage-2:not(.is-chest-animating)
-    .chance-section__swiper-slide--chosen-1
-    & {
-    border-color: var(--col-tropical-funk);
-    box-shadow: 0 to-rem(4) to-rem(50) var(--col-tropical-funk);
-  }
-
-  .chest-stage-3:not(.is-chest-animating)
-    .chance-section__swiper-slide--chosen-2
-    & {
+  .chance-section__swiper-slide--chosen & {
     border-color: var(--col-tropical-funk);
     box-shadow: 0 to-rem(4) to-rem(50) var(--col-tropical-funk);
   }

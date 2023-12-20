@@ -6,21 +6,27 @@ const params = {
   initialSlide: 8,
   loop: true,
   loopPreventsSliding: false,
-  centeredSlides: false,
-  allowTouchMove: true,
-  grabCursor: true,
-  slidesPerView: 2,
   spaceBetween: 15,
   autoplay: false,
   speed: 500,
   breakpoints: {
+    1: {
+      slidesPerView: 2,
+      centeredSlides: false,
+      allowTouchMove: true,
+      grabCursor: true,
+    },
     540: {
       slidesPerView: 3,
       centeredSlides: true,
+      allowTouchMove: true,
+      grabCursor: true,
     },
     700: {
       slidesPerView: 'auto',
       centeredSlides: true,
+      allowTouchMove: true,
+      grabCursor: true,
     },
     868: {
       slidesPerView: 'auto',
@@ -30,6 +36,7 @@ const params = {
     },
   },
   preventInteractionOnTransition: false,
+  slideActiveClass: 'chance-section__swiper-slide--chosen',
   navigation: {
     nextEl: '.chance-section__swiper-btn--next',
     prevEl: '.chance-section__swiper-btn--prev',
