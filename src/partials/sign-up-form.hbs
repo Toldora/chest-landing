@@ -117,9 +117,23 @@
             autocomplete='off'
           />
           <button
-            class='sign-up-form__pass-input-btn js-pass-input-btn'
+            class='sign-up-form__password-input-btn sign-up-form__password-input-btn--pass-hidden js-password-input-btn'
             type='button'
-          ></button>
+            aria-label='Clique aqui para mostrar/ocultar senha'
+          >
+            {{> svg-icon
+              class='sign-up-form__password-btn-icon sign-up-form__password-btn-icon--off'
+              width='20'
+              height='20'
+              name='eye-off'
+            }}
+            {{> svg-icon
+              class='sign-up-form__password-btn-icon sign-up-form__password-btn-icon--on'
+              width='20'
+              height='20'
+              name='eye-on'
+            }}
+          </button>
         </div>
       </label>
     </div>
@@ -174,6 +188,7 @@
       <button
         class='sign-up-form__login-btn js-switch-to-login-btn'
         type='button'
+        aria-label="Vá para login"
       >
         Entrar
       </button>

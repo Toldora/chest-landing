@@ -93,7 +93,42 @@
 }
 
 .sign-up-form__text-input-wrapper {
+  --hide-pass-btn-width: #{to-rem(40)};
+
   position: relative;
+}
+
+.sign-up-form__password-input-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: var(--hide-pass-btn-width);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #{rgba(var(--col-total-white-rgb), 50%)};
+  transition: color var(--hover-transition);
+
+  @include hover {
+    color: var(--col-total-white);
+  }
+}
+
+.sign-up-form__password-btn-icon {
+  display: none;
+
+  &--off {
+    .sign-up-form__password-input-btn--pass-hidden & {
+      display: inline-flex;
+    }
+  }
+
+  &--on {
+    button:not(.sign-up-form__password-input-btn--pass-hidden) & {
+      display: inline-flex;
+    }
+  }
 }
 
 .sign-up-form__text-input,
@@ -103,7 +138,8 @@
   height: auto;
   min-height: to-rem(40);
   align-items: center;
-  padding: to-rem(10) to-rem(16);
+  padding: to-rem(10) calc(to-rem(16) + var(--hide-pass-btn-width, to-rem(0)))
+    to-rem(10) to-rem(16);
   border: none;
   border-radius: to-rem(12);
   margin-top: to-rem(8);

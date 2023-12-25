@@ -9,6 +9,7 @@ let formRef = null;
 
 const state = {
   isTelAuthType: true,
+  isVisiblePassword: false,
   isSubmitLoading: false,
 };
 
@@ -74,6 +75,17 @@ const onSubmit = async event => {
   }
 };
 
+function togglePasswordVisibility() {
+  if (state.isVisiblePassword) {
+    this.classList.add('login-form__password-input-btn--pass-hidden');
+    this.previousElementSibling.type = 'password';
+  } else {
+    this.classList.remove('login-form__password-input-btn--pass-hidden');
+    this.previousElementSibling.type = 'text';
+  }
+  state.isVisiblePassword = !state.isVisiblePassword;
+}
+
 export const openLoginModal = ({ isBlocked } = {}) => {
   const markup = handlebars.compile(template)();
 
@@ -87,8 +99,18 @@ export const openLoginModal = ({ isBlocked } = {}) => {
   });
   formRef.addEventListener('submit', onSubmit);
 
+  const hidePasswordBtnRefs = formRef.querySelectorAll(
+    '.js-password-input-btn',
+  );
+  [...hidePasswordBtnRefs].forEach(ref => {
+    ref.addEventListener('click', togglePasswordVisibility);
+  });
+
   const signUpBtnRef = formRef.querySelector('.js-switch-to-sign-up-btn');
-  signUpBtnRef.addEventListener('click', () => openSignUpModal({ isBlocked }));
+  signUpBtnRef.addEventListener('click', () => {
+    openSignUpModal({ isBlocked });
+    state.isVisiblePassword = false;
+  });
 
   openModal({ isBlocked });
 };

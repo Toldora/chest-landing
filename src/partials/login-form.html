@@ -23,13 +23,26 @@
       </label>
       <label>
         <div class="login-form__text-input-label">Senha</div>
-        <input
-          class="login-form__text-input"
-          name="password"
-          placeholder="Senha"
-          type="password"
-          autocomplete="off"
-        />
+        <div class="login-form__text-input-wrapper">
+          <input
+            class="login-form__text-input"
+            name="password"
+            placeholder="Senha"
+            type="password"
+            autocomplete="off"
+          />
+          <button
+            class="login-form__password-input-btn login-form__password-input-btn--pass-hidden js-password-input-btn"
+            type="button"
+            aria-label="Clique aqui para mostrar/ocultar senha"
+          >
+            {{> svg-icon class='login-form__password-btn-icon
+            login-form__password-btn-icon--off' width='20' height='20'
+            name='eye-off' }} {{> svg-icon class='login-form__password-btn-icon
+            login-form__password-btn-icon--on' width='20' height='20'
+            name='eye-on' }}
+          </button>
+        </div>
       </label>
     </div>
     <div class="login-form__auth-inputs login-form__auth-inputs--email">
@@ -45,14 +58,26 @@
       </label>
       <label>
         <div class="login-form__text-input-label">Senha</div>
-        <input
-          class="login-form__text-input"
-          name="password"
-          placeholder="Senha"
-          type="password"
-          minlength="6"
-          autocomplete="off"
-        />
+        <div class="login-form__text-input-wrapper">
+          <input
+            class="login-form__text-input"
+            name="password"
+            placeholder="Senha"
+            type="password"
+            autocomplete="off"
+          />
+          <button
+            class="login-form__password-input-btn login-form__password-input-btn--pass-hidden js-password-input-btn"
+            type="button"
+            aria-label="Clique aqui para mostrar/ocultar senha"
+          >
+            {{> svg-icon class='login-form__password-btn-icon
+            login-form__password-btn-icon--off' width='20' height='20'
+            name='eye-off' }} {{> svg-icon class='login-form__password-btn-icon
+            login-form__password-btn-icon--on' width='20' height='20'
+            name='eye-on' }}
+          </button>
+        </div>
       </label>
     </div>
     <!-- <div class="login-form__email-error js-email-error"></div> -->
@@ -71,6 +96,7 @@
       <button
         class="login-form__sign-up-btn js-switch-to-sign-up-btn"
         type="button"
+        aria-label="Vá para o registro"
       >
         registro
       </button>
