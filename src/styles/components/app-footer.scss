@@ -3,31 +3,20 @@
 }
 
 .app-footer__container {
-  max-width: to-rem(300);
   display: grid;
-  align-items: center;
+  place-items: center;
   grid-gap: to-rem(30);
   gap: to-rem(20);
   padding-top: to-rem(40);
-  padding-bottom: to-rem(40);
+  padding-bottom: to-rem(20);
   font-size: to-rem(16);
   color: var(--secondary-text-color);
   text-align: center;
 
   @include respond-above(tablet) {
-    max-width: var(--container-max-width);
-    grid-template-columns: auto 1fr to-rem(220);
-    padding-top: to-rem(90);
-    padding-bottom: to-rem(90);
+    padding-top: to-rem(60);
+    padding-bottom: to-rem(30);
     font-size: to-rem(18);
-  }
-}
-
-.app-footer__logo-link {
-  justify-self: center;
-
-  @include respond-above(tablet) {
-    justify-self: flex-start;
   }
 }
 

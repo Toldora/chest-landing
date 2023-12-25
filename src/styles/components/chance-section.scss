@@ -90,8 +90,11 @@
     box-shadow var(--hover-transition);
 
   .chance-section__swiper-slide--chosen & {
-    border-color: var(--col-tropical-funk);
-    box-shadow: 0 to-rem(4) to-rem(50) var(--col-tropical-funk);
+    body:not(.chest-stage-1) &,
+    .is-chest-animating & {
+      border-color: var(--col-tropical-funk);
+      box-shadow: 0 to-rem(4) to-rem(50) var(--col-tropical-funk);
+    }
   }
 }
 
