@@ -178,6 +178,13 @@ const onClickChest = () => {
   if (state.isOpening || globalState.isLastStage) return;
 
   state.isOpening = true;
+
+  const chestSectionBoundingRect = chestSectionRef.getBoundingClientRect();
+  window.scrollTo({
+    top: chestSectionBoundingRect.height - window.screen.availHeight * 0.5,
+    behavior: 'smooth',
+  });
+
   bodyRef.classList.add('is-chest-animating');
 
   switch (globalState.chestStage) {
