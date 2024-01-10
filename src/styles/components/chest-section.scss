@@ -86,6 +86,41 @@
   }
 }
 
+.chest-section__dollar-coin-decor {
+  --size: 18vw;
+
+  position: absolute;
+  z-index: var(--z-raised);
+  bottom: 29%;
+  right: 0;
+  transform: translateX(25%);
+  max-width: var(--size);
+  height: 0;
+  padding-bottom: var(--size);
+  aspect-ratio: 1;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  filter: blur(to-rem(2));
+  user-select: none;
+
+  @include bg-img-webp('/img/chest-section/dollar-coin-decor', true);
+
+  @include respond-above(tablet) {
+    --size: 12vw;
+
+    bottom: 0;
+  }
+
+  @include respond-above(xmedium) {
+    --size: min(9.8vw, #{to-rem(190)});
+
+    right: 0;
+    left: min(100%, 50% + var(--container-max-width) / 2);
+    transform: translateX(-100%);
+  }
+}
+
 .chest-section__title {
   margin-bottom: to-rem(10);
   font-size: to-rem(24);
