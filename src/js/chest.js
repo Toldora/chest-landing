@@ -237,7 +237,7 @@ const onClickChest = () => {
 
 export const setChestLastStage = () => {
   bodyRef.classList.add('chest-stage-3');
-  bodyRef.classList.remove('chest-stage-1');
+  bodyRef.classList.remove('chest-stage-1', 'chest-stage-2');
   chestSectionRef.classList.add(
     'chest-section--visible-first-bonus',
     'chest-section--visible-second-bonus',

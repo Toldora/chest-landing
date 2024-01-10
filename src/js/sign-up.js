@@ -1,9 +1,12 @@
 import handlebars from 'handlebars';
+import queryString from 'query-string';
 import template from '@/partials/sign-up-form.hbs?raw';
+import { registerUser } from '@/api/registration';
 import { openModal } from '@/js/modal';
-import { openLoginModal } from '@/js//login';
+// import { openLoginModal } from '@/js//login';
 import { globalState } from '@/js/global-state';
-import { AUTH_FIELD } from '@/const';
+import { setToLS } from '@/js/local-storage';
+import { AUTH_FIELD, ERROR_MESSAGES } from '@/const';
 
 const modalContentRef = document.querySelector('.js-app-modal-content');
 let formRef = null;
@@ -40,17 +43,16 @@ function onChangeAuthType() {
     formRef.classList.add('sign-up-form__form--auth-with-tel');
 
     formRef[AUTH_FIELD.tel].required = true;
-    [formRef[AUTH_FIELD.email], formRef[AUTH_FIELD.password]].forEach(ref => {
-      ref.required = false;
-    });
+    formRef[AUTH_FIELD.email].required = false;
   } else {
     formRef.classList.remove('sign-up-form__form--auth-with-tel');
     formRef.classList.add('sign-up-form__form--auth-with-email');
     formRef[AUTH_FIELD.tel].required = false;
-    [formRef[AUTH_FIELD.email], formRef[AUTH_FIELD.password]].forEach(ref => {
-      ref.required = true;
-    });
+    formRef[AUTH_FIELD.email].required = true;
   }
+
+  const errorRef = formRef.querySelector('.js-auth-error');
+  errorRef.classList.remove('visible');
 
   validate();
 }
@@ -66,47 +68,60 @@ const onChangeCheckbox = () => {
 const onSubmit = async event => {
   event.preventDefault();
 
+  const searchString = queryString.parse(window.location.search);
+
   try {
     if (!state.isValid || state.isSubmitLoading) return;
 
-    console.log('SUBMIT');
-
     state.isSubmitLoading = true;
     formRef.fieldset.disabled = true;
-    formRef.submitBtn.textContent = 'Carregando...';
+    formRef.submitBtn.classList.add('loading');
 
-    formRef.style.minHeight = `${formRef.clientHeight}px`;
+    const body = {
+      ...(state.isTelAuthType
+        ? { phone: formRef[AUTH_FIELD.tel].value }
+        : { email: formRef[AUTH_FIELD.email].value }),
+      password: formRef[AUTH_FIELD.password].value,
+      currency: 'BRL',
+      country: 'BR',
+      affiliateTag: searchString.click_id ?? '',
+      bonusCode: searchString.bonus_code ?? '',
+    };
 
-    const body = JSON.stringify({});
+    const { data } = await registerUser(body);
 
-    // const response = await fetch(
-    //   'https://idyllic-eclair-f22d90.netlify.app/api/sign-up',
-    //   {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body,
-    //   },
-    // );
-    // const data = await response.json();
-    // if (response.ok) {
-    //   formRef.innerHTML = `<h2 class="sign-up__title">Junte-se a nós</h2>
-    //   <div>Sucesso! Entraremos em contato em breve.</div>`;
-    // } else {
-    //   const errorRef = formRef.querySelector('.js-email-error');
-    //   errorRef.textContent = data.messagePt || data.message;
-    //   errorRef.classList.add('sign-up__email-error--visible');
-    // }
+    setToLS('isAlreadyRegistered', true);
+
+    searchString.state = data.autologinToken;
+    const stringifiedSearch = queryString.stringify(searchString);
+
+    window.location.replace(
+      `${
+        import.meta.env.VITE_REDIRECT_URL
+      }/auth/autologin/?${stringifiedSearch}`,
+    );
   } catch (error) {
-    formRef.innerHTML = JSON.stringify(error, null, 2);
+    const emailError = error.response?.data?.error?.fields?.email[0];
+    if (!emailError || emailError === ERROR_MESSAGES.playerExist) {
+      searchString['sign-up'] = true;
+      const stringifiedSearch = queryString.stringify(searchString);
+
+      window.location.replace(
+        `${import.meta.env.VITE_REDIRECT_URL}/?${stringifiedSearch}`,
+      );
+      return;
+    }
+
+    const errorRef = formRef.querySelector('.js-auth-error');
+    errorRef.textContent = emailError;
+    errorRef.classList.add('visible');
   } finally {
     state.isSubmitLoading = false;
     if (formRef.fieldset) {
       formRef.fieldset.disabled = false;
     }
     if (formRef.submitBtn) {
-      formRef.submitBtn.textContent = 'Inscrever-se';
+      formRef.submitBtn.classList.remove('loading');
     }
   }
 };
@@ -152,11 +167,11 @@ export const openSignUpModal = ({ isBlocked } = {}) => {
     ref.addEventListener('click', togglePasswordVisibility);
   });
 
-  const loginBtnRef = formRef.querySelector('.js-switch-to-login-btn');
-  loginBtnRef.addEventListener('click', () => {
-    openLoginModal({ isBlocked });
-    state.isVisiblePassword = false;
-  });
+  // const loginBtnRef = formRef.querySelector('.js-switch-to-login-btn');
+  // loginBtnRef.addEventListener('click', () => {
+  //   openLoginModal({ isBlocked });
+  //   state.isVisiblePassword = false;
+  // });
 
   openModal({ isBlocked });
 };

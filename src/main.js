@@ -1,26 +1,38 @@
 import '@/styles/index.scss';
 
 import 'virtual:svg-icons-register';
+import queryString from 'query-string';
 import '@/plugins';
 
 import '@/js/global-state';
 import '@/js/modal';
-import '@/js/chest';
+import { setChestLastStage } from '@/js/chest';
 import { openSignUpModal } from '@/js/sign-up';
 // import '@/js/sidebar';
 // import '@/js/terms-and-privacy';
 import useViewportSizes from '@/js/use-viewport-sizes';
-// import { getFromLS } from '@/js/local-storage';
+import { getFromLS } from '@/js/local-storage';
 
 const signUpBtnRef = document.querySelector('.js-sign-up-btn');
 
 useViewportSizes();
 
-// const isLastStage = getFromLS('isLastStage');
+const isAlreadyRegistered = getFromLS('isAlreadyRegistered');
+if (isAlreadyRegistered) {
+  const searchString = queryString.parse(window.location.search);
 
-// // if (isLastStage) {
-// //   setWheelLastStage();
-// //   openSignUpModal({ isBlocked: true });
-// // }
+  searchString['sign-in'] = true;
+  const stringifiedSearch = queryString.stringify(searchString);
+
+  window.location.replace(
+    `${import.meta.env.VITE_REDIRECT_URL}/?${stringifiedSearch}`,
+  );
+}
+
+const isLastStage = getFromLS('isLastStage');
+if (isLastStage) {
+  setChestLastStage();
+  openSignUpModal({ isBlocked: true });
+}
 
 signUpBtnRef.addEventListener('click', openSignUpModal);

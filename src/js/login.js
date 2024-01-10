@@ -33,6 +33,7 @@ const onSubmit = async event => {
   try {
     if (state.isSubmitLoading) return;
 
+    // eslint-disable-next-line no-console
     console.log('SUBMIT');
 
     state.isSubmitLoading = true;
@@ -41,6 +42,7 @@ const onSubmit = async event => {
 
     formRef.style.minHeight = `${formRef.clientHeight}px`;
 
+    // eslint-disable-next-line no-unused-vars
     const body = JSON.stringify({});
 
     // const response = await fetch(

@@ -90,8 +90,8 @@
     box-shadow var(--hover-transition);
 
   .chance-section__swiper-slide--chosen & {
-    body:not(.chest-stage-1) &,
-    .is-chest-animating & {
+    .is-chest-animating &,
+    body:not(.chest-stage-1) & {
       border-color: var(--col-tropical-funk);
       box-shadow: 0 to-rem(4) to-rem(50) var(--col-tropical-funk);
     }

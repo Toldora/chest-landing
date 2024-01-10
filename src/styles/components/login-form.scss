@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #{rgba(var(--col-total-white-rgb), 50%)};
+  color: rgba(var(--col-total-white-rgb), 50%);
   transition: color var(--hover-transition);
 
   @include hover {
