@@ -2,14 +2,14 @@ const prizesCtx = {
   list: [
     {
       imgPath: '/img/prizes/coins-safe',
-      title: '1000 R$ Bonus',
+      title: 'R$ 1000 Bonus',
       chance: 25,
       isStared: false,
       casesLeft: 591,
     },
     {
       imgPath: '/img/prizes/chest',
-      title: '4000 R$ Bonus',
+      title: 'R$ 4000 Bonus',
       chance: 5,
       isStared: true,
       casesLeft: 7,
@@ -30,7 +30,7 @@ const prizesCtx = {
     },
     {
       imgPath: '/img/prizes/coins-bag',
-      title: '2500 R$ Bonus',
+      title: 'R$ 2500 Bonus',
       chance: 15,
       isStared: false,
       casesLeft: 41,
