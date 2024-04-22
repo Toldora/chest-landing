@@ -4,25 +4,8 @@
 :root,
 ::before,
 ::after {
-  --vh: 1vh;
-
   // Primary colors
-  --col-total-white: #{$col-total-white};
-  --col-total-white-rgb: #{$col-total-white-rgb};
-  --col-total-black: #{$col-total-black};
-  --col-total-black-rgb: #{$col-total-black-rgb};
-  --col-dark-tone-ink: #{$col-dark-tone-ink};
   --col-shadow-warrior: #{$col-shadow-warrior};
-  --col-tibetan-yellow: #{$col-tibetan-yellow};
-  --col-tibetan-yellow-rgb: #{$col-tibetan-yellow-rgb};
-  --col-nuclear-fallout: #{$col-nuclear-fallout};
-  --col-gordons-green: #{$col-gordons-green};
-  --col-gordons-green-rgb: #{$col-gordons-green-rgb};
-  --col-kuro-green: #{$col-kuro-green};
-  --col-rich-olive: #{$col-rich-olive};
-  --col-vermilion-cinnabar: #{$col-vermilion-cinnabar};
-  --col-radiant-silver: #{$col-radiant-silver};
-  --col-bilberry: #{$col-bilberry};
   --col-bilious-brown: #{$col-bilious-brown};
   --col-hollandaise: #{$col-hollandaise};
   --col-hollandaise-rgb: #{$col-hollandaise-rgb};
@@ -32,7 +15,6 @@
   --col-classic-green: #{$col-classic-green};
   --col-hazel-woods: #{$col-hazel-woods};
   --col-protoss-pylon: #{$col-protoss-pylon};
-  --col-island-palm: #{$col-island-palm};
   --col-envious-pastel: #{$col-envious-pastel};
   --col-envious-pastel-rgb: #{$col-envious-pastel-rgb};
   --col-dark-dide-of-the-moon: #{$col-dark-dide-of-the-moon};
@@ -63,18 +45,6 @@
     --p-size: #{to-rem(18)};
   }
 
-  // Transitions
-  --fast-transition-duration: 0.2s;
-  --medium-transition-duration: 0.3s;
-  --slow-transition-duration: 0.4s;
-  --hover-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --slide-transition-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
-  --fade-transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
-  --hover-transition: var(--fast-transition-duration)
-    var(--hover-transition-timing-function);
-  --slide-transition: var(--medium-transition-duration)
-    var(--slide-transition-timing-function);
-
   // Base
   --container-max-width: 100%;
   --container-side-padding: #{to-rem(20)};
@@ -99,10 +69,6 @@
   @include respond-above(xlarge) {
     --container-max-width: #{to-rem(1620)};
   }
-
-  // Common
-  --scrollbar-thumb-color: var(--col-bilberry);
-  --scrollbar-track-color: rgb(var(--col-total-white-rgb), 15%);
 
   // App navbar
   --app-navbar-height: #{to-rem(70)};

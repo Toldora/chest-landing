@@ -13,10 +13,17 @@ const root = path.resolve(__dirname, resolveApp('src'));
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
+  const viteEnv = Object.entries(env).reduce((acc, [key]) => {
+    if (key.startsWith('VITE_')) {
+      acc[`process.env.${key}`] = `import.meta.env.${key}`;
+    }
+    return acc;
+  }, {});
 
   return {
     base: '/',
     publicDir: 'static',
+    define: viteEnv,
     ...(env.VITE_PORT
       ? {
           server: {

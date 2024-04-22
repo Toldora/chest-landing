@@ -1,0 +1,65 @@
+{{#isGreaterOrEqual chestStage 2}}
+  <div class='sign-up-bonuses__bonus-text-row'>
+    <p>Você ganhou
+      <span class='sign-up-bonuses__accent-text'>250 Giros Grátis</span></p>
+    {{#isGreaterOrEqual chestStage 3}}
+      <p>e bônus <span class='sign-up-bonuses__accent-text'>R$ 4000</span></p>
+    {{/isGreaterOrEqual}}
+  </div>
+{{/isGreaterOrEqual}}
+
+{{#isGreaterOrEqual chestStage 2}}
+  <ul class='sign-up-bonuses__bonus-img-row'>
+    <li class='sign-up-bonuses__bonus-img-wrapper'>
+      <picture class='sign-up-bonuses__bonus-img'>
+        <source
+          type='image/webp'
+          srcset='
+              /img/prizes/present.webp     80w,
+              /img/prizes/present@2x.webp 160w
+            '
+          sizes='80px'
+        />
+        <source
+          type='image/png'
+          srcset='
+              /img/prizes/present.png     80w,
+              /img/prizes/present@2x.png 160w
+            '
+          sizes='80px'
+        />
+        <img
+          src='/img/prizes/present.png'
+          width='80'
+          height='80'
+          alt=''
+          loading='lazy'
+        />
+      </picture>
+    </li>
+    {{#isGreaterOrEqual chestStage 3}}
+      <li class='sign-up-bonuses__bonus-img-wrapper'>
+
+        <picture class='sign-up-bonuses__bonus-img'>
+          <source
+            type='image/webp'
+            srcset='/img/prizes/chest.webp 80w, /img/prizes/chest@2x.webp 160w'
+            sizes='80px'
+          />
+          <source
+            type='image/png'
+            srcset='/img/prizes/chest.png 80w, /img/prizes/chest@2x.png 160w'
+            sizes='80px'
+          />
+          <img
+            src='/img/prizes/chest.png'
+            width='80'
+            height='80'
+            alt=''
+            loading='lazy'
+          />
+        </picture>
+      </li>
+    {{/isGreaterOrEqual}}
+  </ul>
+{{/isGreaterOrEqual}}
