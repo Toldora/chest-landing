@@ -13,17 +13,17 @@ const root = path.resolve(__dirname, resolveApp('src'));
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
-  const viteEnv = Object.entries(env).reduce((acc, [key]) => {
-    if (key.startsWith('VITE_')) {
-      acc[`process.env.${key}`] = `import.meta.env.${key}`;
-    }
-    return acc;
-  }, {});
-
+  // const viteEnv = Object.entries(env).reduce((acc, [key, value]) => {
+  //   if (key.startsWith('VITE_')) {
+  //     acc[`process.env.${key}`] = `${String(value)}`;
+  //   }
+  //   return acc;
+  // }, {});
+  // console.log(viteEnv);
   return {
     base: '/',
     publicDir: 'static',
-    define: viteEnv,
+    // define: viteEnv,
     ...(env.VITE_PORT
       ? {
           server: {
